@@ -10,7 +10,7 @@
   <div>
     on div
     <template v-for="value in list" :key="value">
-      <div v-show="index===value"  :ref="refs.set">{{ value }}</div>
+      <div v-show="index===value"  :ref="refs2.set">{{ value }}</div>
     </template>
     <div>refs2.length:{{ refs2.length }}</div>
   </div>
@@ -21,35 +21,20 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import {  ref } from 'vue';
 import { useTemplateRefsList } from '@vueuse/core';
 import LayoutWrap from '@/components/LayoutWrap.vue';
-export default defineComponent({
-  name: 'App',
-  components: {
-    LayoutWrap,
-  },
-  setup() {
-    let index = ref(1);
-    const list=ref([1,2,3])
-    const refs = useTemplateRefsList();
-    const refs2 = useTemplateRefsList();
-    const addCount=()=>{
-      index.value++
-    }
-    // 减一
-    const subCount=()=>{
-      index.value--
-    }
-    return {
-      index,
-      list,
-      refs,
-      refs2,
-      addCount,
-      subCount
-    };
-  },
-});
+
+let index = ref(1);
+const list=ref([1,2,3])
+const refs = useTemplateRefsList();
+const refs2 = useTemplateRefsList();
+const addCount=()=>{
+  index.value++
+}
+// 减一
+const subCount=()=>{
+  index.value--
+}
 </script>
