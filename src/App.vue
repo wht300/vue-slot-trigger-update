@@ -2,7 +2,7 @@
   <LayoutWrap>
     on slot
     <template v-for="value in list" :key="value">
-      <div v-show="index===count"  :ref="refs.set">{{ value }}</div>
+      <div v-show="index===value"  :ref="refs.set">{{ value }}</div>
     </template>
     <div>refs.length:{{ refs.length }}</div>
   </LayoutWrap>
@@ -10,7 +10,7 @@
   <div>
     on div
     <template v-for="value in list" :key="value">
-      <div v-show="index===count"  :ref="refs.set">{{ value }}</div>
+      <div v-show="index===value"  :ref="refs.set">{{ value }}</div>
     </template>
     <div>refs2.length:{{ refs2.length }}</div>
   </div>
