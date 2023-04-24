@@ -24,12 +24,9 @@
 <script>
 import { defineComponent, ref } from 'vue';
 import { useTemplateRefsList } from '@vueuse/core';
-
-// components
 import LayoutWrap from '@/components/LayoutWrap.vue';
-
 export default defineComponent({
-  name: 'BaseOrder',
+  name: 'App',
   components: {
     LayoutWrap,
   },
