@@ -15,9 +15,9 @@
     <div>refs2.length:{{ refs2.length }}</div>
   </div>
   <div>
-    <button @click="addCound">+1</button>
+    <button @click="addCount">+1</button>
     {{ index }}
-    <button @click="subCound">-1</button>
+    <button @click="subCount">-1</button>
   </div>
 </template>
 
