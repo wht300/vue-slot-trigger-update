@@ -34,19 +34,19 @@ export default defineComponent({
     LayoutWrap,
   },
   setup() {
-    let count = ref(1);
+    let index = ref(1);
     const list=ref([1,2,3])
     const refs = useTemplateRefsList();
     const refs2 = useTemplateRefsList();
     const addCound=()=>{
-      count.value++
+      index.value++
     }
     // 减一
     const subCound=()=>{
-      count.value--
+      index.value--
     }
     return {
-      count,
+      index,
       list,
       refs,
       refs2,
