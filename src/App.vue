@@ -38,11 +38,11 @@ export default defineComponent({
     const list=ref([1,2,3])
     const refs = useTemplateRefsList();
     const refs2 = useTemplateRefsList();
-    const addCound=()=>{
+    const addCount=()=>{
       index.value++
     }
     // 减一
-    const subCound=()=>{
+    const subCount=()=>{
       index.value--
     }
     return {
@@ -50,8 +50,8 @@ export default defineComponent({
       list,
       refs,
       refs2,
-      addCound,
-      subCound
+      addCount,
+      subCount
     };
   },
 });
