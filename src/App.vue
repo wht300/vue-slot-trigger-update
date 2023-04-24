@@ -16,7 +16,7 @@
   </div>
   <div>
     <button @click="addCound">+1</button>
-    {{ count }}
+    {{ index }}
     <button @click="subCound">-1</button>
   </div>
 </template>
