@@ -1,40 +1,45 @@
 <template>
-  <LayoutWrap>
-    on slot
-    <template v-for="value in list" :key="value">
-      <div v-show="index===value"  :ref="refs.set">{{ value }}</div>
-    </template>
-    <div>refs.length:{{ refs.length }}</div>
-  </LayoutWrap>
-  <br>
   <div>
-    on div
-    <template v-for="value in list" :key="value">
-      <div v-show="index===value"  :ref="refs2.set">{{ value }}</div>
-    </template>
-    <div>refs2.length:{{ refs2.length }}</div>
+    <LayoutWrap>
+      on slot
+      <template v-for="(value,index) in list" :key="value">
+        <div v-show="index===countOnSlot" :ref="setRefInSlot">{{ value }}</div>
+      </template>
+    </LayoutWrap>
+    <button @click="addSlotCount">addSlotCount</button>
   </div>
   <div>
-    <button @click="addCount">+1</button>
-    {{ index }}
-    <button @click="subCount">-1</button>
+    <div>
+      on slot
+      <template v-for="(value,index) in list" :key="value">
+        <div v-show="index===countOnDiv" :ref="setRefInDiv">{{ value }}</div>
+      </template>
+    </div>
+    <button @click="addDivCount">addDivCount</button>
   </div>
 </template>
 
 <script setup>
-import {  ref } from 'vue';
-import { useTemplateRefsList } from '@vueuse/core';
+import {ref,onBeforeUpdate} from 'vue';
 import LayoutWrap from '@/components/LayoutWrap.vue';
+const countOnSlot=ref(0)
+const countOnDiv=ref(0)
 
-let index = ref(1);
-const list=ref([1,2,3])
-const refs = useTemplateRefsList();
-const refs2 = useTemplateRefsList();
-const addCount=()=>{
-  index.value++
+const addSlotCount=()=>{
+  countOnSlot.value++
 }
-// 减一
-const subCount=()=>{
-  index.value--
+const addDivCount=()=>{
+  countOnDiv.value++
 }
+const list=ref([1,2,3,4,5])
+const setRefInSlot=(el)=>{
+  console.log('setRefInSlot el:',el);
+}
+const setRefInDiv=(el)=>{
+  console.log('setRefInDiv el:',el);
+}
+onBeforeUpdate(()=>{
+  console.log('onBeforeUpdate');
+})
+
 </script>
