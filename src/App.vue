@@ -2,18 +2,14 @@
   <div>
     <LayoutWrap>
       on slot
-      <template v-for="(value,index) in list" :key="value">
-        <div v-show="index===countOnSlot" :ref="setRefInSlot">{{ value }}</div>
-      </template>
+      {{countOnSlot}}
     </LayoutWrap>
     <button @click="addSlotCount">addSlotCount</button>
   </div>
   <div>
     <div>
       on slot
-      <template v-for="(value,index) in list" :key="value">
-        <div v-show="index===countOnDiv" :ref="setRefInDiv">{{ value }}</div>
-      </template>
+      {{countOnDiv}}
     </div>
     <button @click="addDivCount">addDivCount</button>
   </div>
@@ -30,13 +26,6 @@ const addSlotCount=()=>{
 }
 const addDivCount=()=>{
   countOnDiv.value++
-}
-const list=ref([1,2,3,4,5])
-const setRefInSlot=(el)=>{
-  console.log('setRefInSlot el:',el);
-}
-const setRefInDiv=(el)=>{
-  console.log('setRefInDiv el:',el);
 }
 onBeforeUpdate(()=>{
   console.log('onBeforeUpdate');
